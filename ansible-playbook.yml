@@ -15,8 +15,12 @@
     command : sudo systemctl start docker
     become : yes
     become_user : root
-
+        
   - name: Deploy Docker Container
-    command: docker run -itd -p 8084:8082 sanketar/medicure:1.0
-    become : yes
-    become_user : root
+    command: docker run -itd -p 8084:8082 sanketar/medicure-me:1.0
+
+
+    
+    
+    
+    
