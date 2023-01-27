@@ -23,7 +23,7 @@
     command: sudo docker run -itd -p 8084:8082 sanketar/medicure-me:1.0
     
   - name: Deploying Prometheus
-    command: sudo docker run -p 9090:9090 prom/prometheus
+    command: sudo docker run -itd -p 9090:9090 prom/prometheus
   
   - name: Deploying node-exporter
     command: sudo docker run -itd -p 9100:9100 prom/node-exporter
