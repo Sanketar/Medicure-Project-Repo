@@ -131,6 +131,8 @@ resource "aws_instance" "Production-instance" {
  sudo docker run -p 8084:8082 -d sanketar/medicure-me:1.0 
  sudo curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
  sudo install minikube-linux-amd64 /usr/local/bin/minikube
+ sudo docker run -p 9090:9090 prom/prometheus
+ sudo docker run -itd -p 9100:9100 prom/node-exporter
  EOF
  tags = {
  Name = "Production-instance"
