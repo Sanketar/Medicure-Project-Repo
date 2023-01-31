@@ -1,0 +1,44 @@
+Selenium Test Code
+==================
+
+node{
+    
+    stage('Pull the runnable jar'){
+        git 'https://github.com/Sanketar/Medicure-Project-Repo.git'
+    }
+    
+    stage('Run the selenium test-suit'){
+        echo "executing the selenium testcase"
+        sh 'sudo java -jar selenium-medicure-runnable.jar'
+    }
+}
+
+********************************
+
+Terraform Code
+==============
+
+node{
+    stage('Git Code Checkout'){
+        echo 'Checkout the code from git repository'
+        git 'https://github.com/Sanketar/Medicure-Project-Repo.git'
+    }
+    
+    stage('Initiating the Production Enviroment'){
+        sh 'terraform init'
+        sh 'terraform validate'
+    }
+    
+    stage('Planing the Production Enviroment'){
+        sh 'terraform plan'
+    }
+    
+    stage('Creating the Production Enviroment'){
+        sh 'terraform apply -auto-approve'
+    }
+    
+    stage('Destroying the Production Enviroment'){
+        sh 'terraform destroy -auto-approve'
+    }
+}
+***************************************************
